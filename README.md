@@ -1,2 +1,2 @@
 # Portfolio-Viewer
-iew your stock portfolio
+view your stock portfolio
