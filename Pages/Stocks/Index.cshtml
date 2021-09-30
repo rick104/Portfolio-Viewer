@@ -1,0 +1,71 @@
+@page
+@model RazorStocks.Pages.Stocks.IndexModel
+
+@{
+    ViewData["Title"] = "Stocks";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.SymbolSort">
+                    @Html.DisplayNameFor(model => model.Stocks[0].Symbol)
+                </a>
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Stocks[0].Industry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stocks[0].CurrentPrice)
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.TotalValueSort">
+                    @Html.DisplayNameFor(model => model.Stocks[0].TotalValue)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stocks[0].TotalGain)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stocks[0].AverageCost)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Stocks) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Symbol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Industry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalGain)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AverageCost)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,59 @@
+@page
+@model RazorStocks.Pages.Stocks.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Stock</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Stock.Symbol" class="control-label"></label>
+                <input asp-for="Stock.Symbol" class="form-control" />
+                <span asp-validation-for="Stock.Symbol" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Stock.Industry" class="control-label"></label>
+                <input asp-for="Stock.Industry" class="form-control" />
+                <span asp-validation-for="Stock.Industry" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Stock.CurrentPrice" class="control-label"></label>
+                <input asp-for="Stock.CurrentPrice" class="form-control" />
+                <span asp-validation-for="Stock.CurrentPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Stock.TotalValue" class="control-label"></label>
+                <input asp-for="Stock.TotalValue" class="form-control" />
+                <span asp-validation-for="Stock.TotalValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Stock.TotalGain" class="control-label"></label>
+                <input asp-for="Stock.TotalGain" class="form-control" />
+                <span asp-validation-for="Stock.TotalGain" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Stock.AverageCost" class="control-label"></label>
+                <input asp-for="Stock.AverageCost" class="form-control" />
+                <span asp-validation-for="Stock.AverageCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
